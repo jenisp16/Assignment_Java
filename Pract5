@@ -1,0 +1,137 @@
+//Name:Jenis Patel
+//ID:21CE093
+import java.text.DecimalFormat;
+import java.util.Scanner;
+class Account_ex5 {
+    int id = 0;
+    double AIR = 7;
+    java.util.Date dateCreated;
+    java.util.Date getdate() {
+        return dateCreated;
+    }
+    double getMonthlyInterestRate() {
+        return AIR / 12;
+    }
+    double getMonthlyInterest(double bal) {
+        return bal * (AIR / 1200);
+    }
+}
+class Checking extends Account_ex5 {
+    double Cbalance=500;
+    Checking(int i) {
+        dateCreated = new java.util.Date();
+        id = i;
+        System.out.println("your account created successfully
+                           !!!");
+    }
+    void withdraw(double w_amount) {
+        if (w_amount < 2000 && w_amount<Cbalance) {
+            Cbalance = Cbalance - w_amount;
+            System.out.println("Your Amount is withdraw
+                               successfully !!!");
+            System.out.println("Now your account balance : " +
+                               Cbalance);
+        } else {
+            System.out.println("Your account dose not have
+                               demanded amount OR limit !!!");
+        }
+    }
+    void deposit(double d_amount) {
+        if(d_amount<2000) {
+            Cbalance = Cbalance + d_amount;
+            System.out.println("Your Amount is deposit
+                               successfully !!!");
+            System.out.println("Now your account balance : " +
+                               Cbalance);
+        } else System.out.println("Your Amount cross the Deposit
+                                      limit ,please enter amount under 2000 !!!");
+    }
+}
+}
+class Saving extends Account_ex5 {
+    double Sbalance=500;
+    Saving(int i) {
+        dateCreated = new java.util.Date();
+        id = i;
+        System.out.println("your account created successfully
+                           !!!");
+    }
+    void withdraw(double w_amount) {
+        if (w_amount<Sbalance) {
+            Sbalance = Sbalance - w_amount;
+            System.out.println("Your Amount is withdraw
+                               successfully !!!");
+            System.out.println("Now your account balance : " +
+                               Sbalance);
+        } else {
+            System.out.println("Your account dose not have
+                               demanded amount");
+        }
+    }
+    void deposit(double d_amount) {
+        Sbalance = Sbalance + d_amount;
+        System.out.println("Your Amount is deposit
+                           successfully !!!");
+        System.out.println("Now your account balance : " +
+                           Sbalance);
+    }
+}
+class ex_5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int aid;
+        System.out.println("---------------Saving Account--------
+                           -----------");
+        System.out.print("Enter ID : ");
+        aid = sc.nextInt();
+        Saving obj = new Saving(aid);
+        System.out.println("Account ID : " + obj.id);
+        System.out.println("Account balance : " + obj.Sbalance);
+        System.out.println("-------------------------------------
+                           ");
+        System.out.print("Enter annualInterestRate : ");
+        obj.AIR= sc.nextDouble();
+        System.out.println("MonthlyInterestRate : " +
+                           obj.getMonthlyInterestRate() + "%");
+        System.out.println("MonthlyInterest : " +
+                           obj.getMonthlyInterest(obj.Sbalance));
+        System.out.println("-------------------------------------
+                           ");
+        System.out.print("Enter deposit amount : ");
+        double pa = sc.nextDouble();
+        obj.deposit(pa);
+        System.out.println("-------------------------------------
+                           ");
+        System.out.print("Enter withdraw amount : ");
+        double tel = sc.nextDouble();
+        obj.withdraw(tel);
+        System.out.println();
+        System.out.println();
+        System.out.println("---------------Checking Account------
+                           -------------");
+        int bid;
+        System.out.print("Enter ID : ");
+        bid = sc.nextInt();
+        Checking obj1 = new Checking(bid);
+        System.out.println("Account ID : " + obj1.id);
+        System.out.println("Account balance : " + obj1.Cbalance);
+        System.out.println("-------------------------------------
+                           ");
+        System.out.print("Enter annualInterestRate : ");
+        obj1.AIR= sc.nextDouble();
+        System.out.println("MonthlyInterestRate : " +
+                           obj1.getMonthlyInterestRate() + "%");
+        System.out.println("MonthlyInterest : " +
+                           obj1.getMonthlyInterest(obj1.Cbalance));
+        System.out.println("-------------------------------------
+                           ");
+        System.out.print("Enter deposit amount : ");
+        double pb = sc.nextDouble();
+        obj1.deposit(pb);
+        System.out.println("-------------------------------------
+                           ");
+        System.out.print("Enter withdraw amount : ");
+        double telb = sc.nextDouble();
+        obj1.withdraw(telb);
+    }
+}
