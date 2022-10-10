@@ -1,0 +1,76 @@
+//Name:Jenis Patel
+//ID:21CE093
+package Pract10;
+
+import Prac9.Square;
+
+public class ComparableSquare extends Square implements Comparable
+{
+    ComparableSquare() {}
+
+    ComparableSquare(double side){
+        super(side);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return (int) ((int)this.getArea() - ((Square) o).getArea());
+    }
+}
+
+
+Main file:
+package Pract10;
+
+public class Prac_Ass_10
+{
+    public static void main(String[] args) {
+        ComparableSquare s1 = new ComparableSquare(200);
+        ComparableSquare s2 = new ComparableSquare(150);
+        if(s1.compareTo(s2)>0){
+            System.out.println("s1 is larger than s2");
+        }
+        else if(s1.compareTo(s2)<0){
+            System.out.println("s2 is larger than s1");
+        }
+        else{
+            System.out.println("s1 is equal to s2");
+        }
+    }
+}
+
+
+
+
+1111111111111111111111
+//Name:Jenis Patel
+//ID:21CE093
+package Pract11;
+
+public class Triplet<s1,s2,s3>
+{
+    private s1 first;
+    private s2 second;
+    private s3 third;
+
+    Triplet(s1 first,s2 second,s3 third){
+        this.first=first;
+        this.second=second;
+        this.third=third;
+    }
+    public String toString()
+    {
+        return "["+first+","+second+","+third+"]";
+    }
+}
+
+TestTriplet Class:
+
+package Pract11;
+public class TestTriplet
+{
+    public static void main(String[] args) {
+        Triplet<Integer,String,String> t=new Triplet<Integer,String,String>(Integer.valueOf(93),"Jenis","Patel");
+        System.out.println(t);
+    }
+}
